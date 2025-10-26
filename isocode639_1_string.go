@@ -91,8 +91,9 @@ const _IsoCode639_1_name = "AFARAZBEBGBNBSCACSCYDADEELENEOESETEUFAFIFRGAGUHEHIHR
 var _IsoCode639_1_index = [...]uint8{0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150, 169}
 
 func (i IsoCode639_1) String() string {
-	if i < 0 || i >= IsoCode639_1(len(_IsoCode639_1_index)-1) {
+	idx := int(i) - 0
+	if i < 0 || idx >= len(_IsoCode639_1_index)-1 {
 		return "IsoCode639_1(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _IsoCode639_1_name[_IsoCode639_1_index[i]:_IsoCode639_1_index[i+1]]
+	return _IsoCode639_1_name[_IsoCode639_1_index[idx]:_IsoCode639_1_index[idx+1]]
 }

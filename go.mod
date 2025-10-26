@@ -1,6 +1,8 @@
 module github.com/pemistahl/lingua-go
 
-go 1.18
+go 1.21
+
+toolchain go1.21.13
 
 require (
 	github.com/shopspring/decimal v1.4.0

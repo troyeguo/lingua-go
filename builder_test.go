@@ -17,8 +17,9 @@
 package lingua
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLanguageDetectorBuilder_FromAllLanguages(t *testing.T) {
@@ -60,83 +61,18 @@ func TestLanguageDetectorBuilder_FromAllLanguagesWithLatinScript(t *testing.T) {
 }
 
 func TestLanguageDetectorBuilder_FromAllLanguagesWithout(t *testing.T) {
-	builder := NewLanguageDetectorBuilder().FromAllLanguagesWithout(Turkish, Romanian)
+	builder := NewLanguageDetectorBuilder().FromAllLanguagesWithout(English, French)
 	assert.ElementsMatch(
 		t,
 		[]Language{
-			Afrikaans,
-			Albanian,
-			Arabic,
-			Armenian,
-			Azerbaijani,
-			Basque,
-			Belarusian,
-			Bengali,
-			Bokmal,
-			Bosnian,
-			Bulgarian,
-			Catalan,
 			Chinese,
-			Croatian,
-			Czech,
-			Danish,
-			Dutch,
-			English,
-			Esperanto,
-			Estonian,
-			Finnish,
-			French,
-			Ganda,
-			Georgian,
 			German,
-			Greek,
-			Gujarati,
-			Hebrew,
-			Hindi,
-			Hungarian,
-			Icelandic,
-			Indonesian,
-			Irish,
 			Italian,
 			Japanese,
-			Kazakh,
 			Korean,
-			Latin,
-			Latvian,
-			Lithuanian,
-			Macedonian,
-			Malay,
-			Maori,
-			Marathi,
-			Mongolian,
-			Nynorsk,
-			Persian,
-			Polish,
 			Portuguese,
-			Punjabi,
 			Russian,
-			Serbian,
-			Shona,
-			Slovak,
-			Slovene,
-			Somali,
-			Sotho,
 			Spanish,
-			Swahili,
-			Swedish,
-			Tagalog,
-			Tamil,
-			Telugu,
-			Thai,
-			Tsonga,
-			Tswana,
-			Ukrainian,
-			Urdu,
-			Vietnamese,
-			Welsh,
-			Xhosa,
-			Yoruba,
-			Zulu,
 		},
 		builder.getLanguages(),
 	)
@@ -158,12 +94,12 @@ func TestLanguageDetectorBuilder_FromLanguages(t *testing.T) {
 		expectedLanguages []Language
 	}{
 		{
-			[]Language{German, Zulu},
-			[]Language{German, Zulu},
+			[]Language{German, Chinese},
+			[]Language{German, Chinese},
 		},
 		{
-			[]Language{German, Zulu, Unknown},
-			[]Language{German, Zulu},
+			[]Language{German, Chinese, Unknown},
+			[]Language{German, Chinese},
 		},
 	}
 	for _, testCase := range testCases {
@@ -196,12 +132,12 @@ func TestLanguageDetectorBuilder_FromIsoCodes639_1(t *testing.T) {
 		expectedLanguages []Language
 	}{
 		{
-			[]IsoCode639_1{DE, ZU},
-			[]Language{German, Zulu},
+			[]IsoCode639_1{DE, ZH},
+			[]Language{German, Chinese},
 		},
 		{
-			[]IsoCode639_1{DE, ZU, UnknownIsoCode639_1},
-			[]Language{German, Zulu},
+			[]IsoCode639_1{DE, ZH, UnknownIsoCode639_1},
+			[]Language{German, Chinese},
 		},
 	}
 	for _, testCase := range testCases {
@@ -234,12 +170,12 @@ func TestLanguageDetectorBuilder_FromIsoCodes639_3(t *testing.T) {
 		expectedLanguages []Language
 	}{
 		{
-			[]IsoCode639_3{DEU, ZUL},
-			[]Language{German, Zulu},
+			[]IsoCode639_3{DEU, ZHO},
+			[]Language{German, Chinese},
 		},
 		{
-			[]IsoCode639_3{DEU, ZUL, UnknownIsoCode639_3},
-			[]Language{German, Zulu},
+			[]IsoCode639_3{DEU, ZHO, UnknownIsoCode639_3},
+			[]Language{German, Chinese},
 		},
 	}
 	for _, testCase := range testCases {
