@@ -1,4 +1,4 @@
-module github.com/pemistahl/lingua-go
+module github.com/troyeguo/lingua-go
 
 go 1.21
 
